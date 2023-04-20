@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{Fluid Flow}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Fluid Flow}
+\rhead{\thepage}
+\maketitle
+
+A fluid is flowing along a cylindrical pipe of radius a in the $\hat{i}$ direction. The velocity of the fluid at a radial distance r from the center of the pipe is $\vec{v} = u(1 - \frac{r^2}{a^2})\hat{i} \frac{cm}{sec}$.
+
+\section*{(a)}
+
+When $r = a$ the velocity is $0\frac{cm}{sec}$. The value $u$ is the max velocity of the fluid in the pipe which is reached when $r = 0$, at the center of the pipe.
+
+\section*{(b)}
+To find the flux through a circular cross-section, begin by finding the surface differential:
+$$x = 0 \quad 0 \leq r \leq a \quad 0 \leq \phi \leq 2\pi$$
+$$d\vec{r} = dr \hat{r} + rd\phi\hat{\phi} + dx \hat{i}$$
+$$d\vec{r_1} = dr\hat{r} \qquad d\vec{r_2} = rd\phi \hat{\phi} $$
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = rdrd\phi\hat{i}$$
+
+Now find the Flux:
+$$Flux = \int_C \vec{G} \cdot d\vec{A} \rightarrow \int_0^{2\pi}\int_0^{a} (ur - \frac{ur^3}{a^2})drd\phi$$
+
+Computing this double integral gives us:
+$$Flux = \frac{ua^2\pi}{2} \; \frac{cm^3}{sec}$$
+
+\end{document}
+

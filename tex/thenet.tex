@@ -1,0 +1,29 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\title{The Fishing Net}
+\author{Christopher Hunt, Brian Reed, Titus Black}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+
+
+
+\subsection*{Triangular Sides:}
+$$-1 \leq y \leq 1 \qquad 0 \leq z \leq 1 \qquad x = 0 \;and\; 5$$
+$$d\vec{A} = \pm \hat{i} \qquad \vec{F} = \rho (ae^{\kappa z^2} \hat{j}- b \hat{k})$$
+$$\int_s \vec{F} \cdot d \vec{A} = 0$$
+\subsection*{Rectangular Side 1:}
+$$0 \leq x \leq 5 \qquad -1 \leq y \leq 0 \qquad z = -y$$
+$$d\vec{A} = -1\hat{j} -1\hat{k} \qquad \vec{F} = \rho (ae^{\kappa (-y)^2} \hat{j}- b \hat{k})$$
+$$\int_s \vec{F} \cdot d \vec{A} = \int_0^5\int_{-1}^0 \rho(b-ae^{\kappa (-y)^2})dydx$$
+\subsection*{Rectangular Side 2:}
+$$0 \leq x \leq 5 \qquad 0 \leq y \leq 1 \qquad z = y$$
+$$d\vec{A} = 1\hat{j} -1\hat{k} \qquad \vec{F} = \rho (ae^{\kappa y^2} \hat{j}- b \hat{k})$$
+$$\int_s \vec{F} \cdot d \vec{A} = \int_0^5\int_0^1 \rho(ae^{\kappa y^2} + b)dydx$$
+
+\subsection*{Total Flux Surface Integral:}
+$$\Phi_{net} = \int_0^5\int_{-1}^0 \rho(b-ae^{\kappa (-y)^2})dydx + \int_0^5\int_0^1 \rho(ae^{\kappa y^2} + b)dydx$$
+\end{document}

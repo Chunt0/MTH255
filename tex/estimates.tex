@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\title{Estimating}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Estimating}
+\rhead{\thepage}
+\maketitle
+
+\subsection*{a) Suppose that $\vec{\nabla}\cdot\vec{F} = xyz^2$}
+\subsubsection*{i. Find $\vec{\nabla}\cdot\vec{F}$ at P(1,2,1):}
+$$div(\vec{F_P}) = 1*2*1^2 = 2$$
+\subsubsection*{ii. Estimate the flux out of a box with side length 0.2 centered at P:}
+$$\Phi = div(\vec{F_P})*V_{box} = 2 * .2^3 = 0.016$$
+\subsubsection*{iii. Use the Divergence Theorem to calculate the exact flux out of the box:}
+$$.9 \leq x \leq 1.1 \quad 1.9 \leq y \leq 2.1 \quad .9 \leq z \leq 1.1$$
+$$\Phi = \int_c div(\vec{F})dV_{box} = \int_{.9}^{1.1}\int_{1.9}^{2.1}\int_{.9}^{1.1}xyz^2\;dxdydz = 0.0160533$$
+
+The estimation of the flux through the box had a percent error of $0.332\%$
+
+\subsection*{b) Given a smooth vector field $\vec{G}$, at P(0,0,0), such that:}
+$$\vec{\nabla} \times \vec{G} = 2\hat{i} - 3\hat{j} + 5\hat{k}$$
+Recall that the circulation can be estimated using this equality: $\oint_C \vec{G}\cdot d\vec{r} = A_c(\vec{\nabla}\times\vec{G})\cdot\vec{u}$, where $\vec{u}$ is the normal vector to the given circulation.
+Estimate the circulation $\oint_C \vec{G}\cdot d\vec{r}$ around a circle of radius r = 0.1, centered at P in each of the following planes.
+\subsubsection*{i. xy-plane}
+$$A_c = .01\pi \quad \vec{u} = \hat{k} \quad (\vec{\nabla}\times\vec{G})\cdot\vec{u} = 5$$
+$$\oint_C \vec{G}\cdot d\vec{r} = A_c(\vec{\nabla}\times\vec{G})\cdot\vec{u} = 0.05 \pi$$
+\subsubsection*{ii. yz-plane}
+$$A_c = .01\pi \quad \vec{u} = \hat{i} \quad (\vec{\nabla}\times\vec{G})\cdot\vec{u} = 2$$
+$$\oint_C \vec{G}\cdot d\vec{r} = A_c(\vec{\nabla}\times\vec{G})\cdot\vec{u} = 0.02 \pi$$
+\subsubsection*{iii. xz-plane}
+$$A_c = .01\pi \quad \vec{u} = \hat{j} \quad (\vec{\nabla}\times\vec{G})\cdot\vec{u} = -3$$
+$$\oint_C \vec{G}\cdot d\vec{r} = A_c(\vec{\nabla}\times\vec{G})\cdot\vec{u} = -0.03 \pi$$
+
+\end{document}

@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{Problem 1}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Problem 1}
+\rhead{\thepage}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{(a)}
+
+Find the circulation of $\vec{F}$ around the loop $\vec{r}(t)$.
+
+$$\vec{F} = x\hat{i}+\hat{j}-y\hat{k} \qquad \vec{r}(t) = cos(t)+sin(t)\hat{j}+sin(t)\hat{k}$$
+\begin{center}
+    \includegraphics[scale=.4]{field.png}
+\end{center}
+To find the circulation of a path through a vector field we will use the line integral, $\int_c \vec{F} \cdot d\vec{r}$. Begin by finding $d\vec{r}$ and the bounds of integration.
+$$d\vec{r} = -sin(t)\hat{i} + cos(t)\hat{j}+cos(t)\hat{k}\;dt$$
+$$ 0 \leq t \leq 2\pi \qquad x(t) = cos(t) \qquad y(t) = sin(t)$$
+Solve the line integral:
+$$\oint_0^{2\pi} \vec{F} \cdot d\vec{r} \rightarrow \oint_0^{2\pi} -2sin(t)cos(t) + cos(t)\;dt$$
+$$-2 \left[ \frac{sin^2(t)}{2}|_0^{2\pi} \right] + \left[ sin(t)|_0^{2\pi} \right] = 0$$
+
+The fact that the circulation is zero suggests that $\vec{F}$ is a conservative vector field but I'm not really sure about that because I could not find a potential function for the vector field...
+
+\subsection*{(b)}
+$$\textbf{The Pretzel}$$
+\begin{center}
+    \includegraphics[scale=.3]{pretzel.png}
+\end{center}
+
+
+Find the total amount of chocolate on a pretzel whose shape is $x(t) = -4sin(3t)$ cm and $y(t) = 4cos(4t)$ cm. The density of the chocolate can be described by the function $\lambda(t) = 3(x^2+y^2)\frac{g}{cm}$.
+\\
+\\
+The mass of chocolate can be found by using $m=\int_c\lambda(t)|d\vec{r}|$
+$$x(t) = -4sin(3)\;cm \qquad y(t)=4cos(4t)\;cm \qquad 0 \leq t \leq \frac{\pi}{2} \;\emph{and}\; \pi \leq t \leq \frac{3\pi}{2}$$
+Find $\vec{r}(t)$, $|d\vec{r}|$ and $\lambda (t)$ in terms of $x(t)$ and $y(t)$:
+$$\vec{r}(t) = -4sin(3t)\hat{i} + 4cos(4t)\hat{j} \;cm \rightarrow d\vec{r} = (-12cos(t)\hat{i}-16sin(4t)\hat{j})\;dt$$
+$$|d\vec{r}| = \sqrt{144cos^2(3t)+256sin^2(4t)}\;dt$$
+$$\lambda(t) = 3(x^2+y^2)\;=\;3(16sin^2(3t)+16cos^2(4t))\frac{g}{cm}$$
+Now set up the integral  $m=\int_c\lambda(t)|d\vec{r}|$:
+$$m = \int_0^\frac{\pi}{2} \left( 3(16sin^2(3t)+16cos^2(4t)) \right)*\sqrt{144cos^2(3t)+256sin^2(4t)}\;dt$$
+$$\;+\int_\pi^\frac{3\pi}{2} \left( 3(16sin^2(3t)+16cos^2(4t)) \right)*\sqrt{144cos^2(3t)+256sin^2(4t)}\;dt$$
+$$m = 865.73159 + 865.73159 = 1731.46318 \;g$$
+This pretzel is heavily coated in 1731.46 g of chocolate.
+
+
+
+\end{document}

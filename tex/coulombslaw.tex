@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\title{Coulomb's Law}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Coulomb's Law}
+\rhead{\thepage}
+\maketitle
+
+\subsection*{Given the electrostatic field $\vec{E}$ at the point $\vec{r}$ due to a charge $q$ at $P(0,0,0)$ is:}
+$$ \vec{E}(\vec{r}) = \frac{q}{4\pi \epsilon_o}*\frac{\vec{r}}{|\vec{r}|^3}$$
+
+\subsection*{a) Compute $div(\vec{E})$:}
+
+Using spherical components:
+$$\vec{E} = \frac{q}{4\pi \epsilon_o}*\frac{1}{r^2}\; \hat{r}$$
+$$div\vec{E} = \frac{1}{r^2}\frac{\delta}{\delta r}(r^2 \vec{E}_{\hat{r}}$$
+$$div(\vec{E}) = 0$$
+
+\subsection*{b) Let $S_a$ be the sphere of radius a.}
+
+The electrostatic flux through the sphere of radius a is:
+$$\Phi_{S_a} = \oint_S \vec{E} \cdot d\vec{A} = \frac{q}{\epsilon_0}\frac{N m^2}{C}$$
+
+By leveraging what we know about the flux through a sphere around a point charge from Guass's Law, the flux through any surface can be calculated using the divergence theorem if the surface area that the flux is being calculated through has a hollow sphere in the center which surrounds the point charge.
+
+\subsection*{c) Consider an outward oriented arbitrary surface, $S$ around a point charge q.}
+\begin{center}
+    \includegraphics[scale=.3]{spherecube.png}
+\end{center}
+
+To find the flux through the cube, $S$ we will place a sphere, $S_a$ within it to form a new surface $S_b$. From this we can formulate the following equality:
+
+$$\Phi_{S} - \Phi_{S_a} = div(\vec{E}) * dV_{S_b} = 0 $$
+$$\Phi_S - \frac{q}{\epsilon_0} = 0 \rightarrow \Phi_S = \frac{q}{\epsilon_0}$$
+
+By using the divergence theorem, Gauss's Law is proven once again. For any arbitrary surface $S$ enclosing a point charge the Electric Flux through that surface will be:
+$$\Phi_{S} = \frac{q}{\epsilon_0}\frac{N m^2}{C}$$
+
+\end{document}
+

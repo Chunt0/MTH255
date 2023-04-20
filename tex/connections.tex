@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\title{Connections}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Connections}
+\rhead{\thepage}
+\maketitle
+\section*{Evaluate $\int_S curl(\vec{F})\cdot d\vec{S}$ where $\vec{F}(x,y,z) = x\hat{i}+y\hat{j}+(z^2-2z+2)\hat{k}$ where $S$ is the part of the cone $z^2=x^2+y^2$ that lies between the planes $z=1$ and $z=2$.}
+\begin{center}
+    \includegraphics[scale=0.25]{fig1.png}
+\end{center}
+This problem can be solved using Stokes' Theorem and the geometric symmetry of the surface and vector field. Stokes' Theorem can be stated as:
+$$\int_S curl(\vec{F})\cdot d\vec{S} = \int_C \vec{F}\cdot d\vec{r}$$
+In our scenario we have a curve at $z=1$ and $z=2$. Viewed from above the curves and the vector field are perpendicular to each other.
+\begin{center}
+    \includegraphics[scale=0.25]{fig2.png}
+\end{center}
+The sum of the curl of the vector field over this surface can be evaluated by summing the circulation around the two loops that make up the bottom and the top of this surface.
+$$\int_S curl(\vec{F})\cdot d\vec{S} = \int_{C1} \vec{F}\cdot d\vec{r_1}+\int_{C2} \vec{F}\cdot d\vec{r_2}$$
+This problem will be best solved in cylindrical. Find $d\vec{r_1}$, $d\vec{r_2}$, and $\vec{F}$ in cylindrical:
+$$d\vec{r_1} = 1d\phi \hat{\phi}\qquad d\vec{r_2} = 2d\phi \hat{\phi} \qquad \vec{F} = r\hat{r}+(z^2-2z+2)\hat{k}$$
+$$\int_{C1} \vec{F}\cdot d\vec{r_1}+\int_{C2} \vec{F}\cdot d\vec{r_2} = 0 + 0$$
+$$\int_S curl(\vec{F})\cdot d\vec{S} = 0 $$
+Evaluating $\int_S curl(\vec{F})\cdot d\vec{S}$ would have been much more difficult if we did not have Stokes' Theorem to give us another route to the answer. By being able to use the closed loop paths of this surface it became obvious by the geometry and by the math that the sum of the curl over this surface is equal to 0. 
+\end{document}

@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{Surfaces}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Surfaces}
+\rhead{\thepage}
+\maketitle
+
+
+\section*{(a)}
+Find the surface element of the following surfaces:
+\subsection*{i}
+The hyperbolic paraboloid $z=x^2-y^2$.
+
+$$z = x^2-y^2 \quad dz = 2xdx-2ydy$$
+$$d\vec{r} = dx\hat{i}+dy\hat{j}+dz\hat{k} \rightarrow d\vec{r} = dx\hat{i}+dy\hat{j}+(2xdx-2ydy)\hat{k}$$
+
+Find $d\vec{A}$:
+\\
+Hold y constant:
+$d\vec{r_1} = dx\hat{i} +2xdx\hat{k}$
+\\
+Hold x constant:
+$d\vec{r_2} = dy\hat{j}-2ydy\hat{k}$
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = \hat{i}(0-2xdxdy) - \hat{j}(-2ydxdy-0)+\hat{k}(dxdy-0)$$
+$$d\vec{A} = (-2x\hat{i}+2y\hat{j}+\hat{k})dxdy$$
+\subsection*{ii}
+The ellipical paraboloid $z=x^2+4y^2$.
+
+$$z = x^2+4y^2 \quad dz = 2xdx+8ydy$$
+$$d\vec{r} = dx\hat{i}+dy\hat{j}+dz\hat{k} \rightarrow d\vec{r} = dx\hat{i}+dy\hat{j}+(2xdx+8ydy)\hat{k}$$
+
+Find $d\vec{A}$:
+\\
+Hold y constant:
+$d\vec{r_1} = dx\hat{i} +2xdx\hat{k}$
+\\
+Hold x constant:
+$d\vec{r_2} = dy\hat{j}+8ydy\hat{k}$
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = \hat{i}(0-2xdxdy) - \hat{j}(8ydxdy-0)+\hat{k}(dxdy-0)$$
+$$d\vec{A} = (-2x\hat{i}-8y\hat{j}+\hat{k})dxdy$$
+\subsection*{iii}
+The paraboloid $z=x^2+y^2$ in cylindrical coordinates.
+
+$$z = x^2+y^2 \rightarrow z = r^2; \; Let\; r \geq 0 \rightarrow r = z^\frac{1}{2}  \quad dr = \frac{1}{2}z^{-\frac{1}{2}}dz$$
+$$d\vec{r} = dr\hat{r}+rd\phi\hat{\phi}+dz\hat{k} \rightarrow d\vec{r} = \frac{1}{2}z^{-\frac{1}{2}}dz\hat{r}+z^\frac{1}{2}d\phi\hat{\phi}+dz\hat{k}$$
+
+Find $d\vec{A}$:
+\\
+Hold $\phi$ constant:
+$d\vec{r_1} = \frac{1}{2}z^{-\frac{1}{2}}dz\hat{r}+dz\hat{k}$
+\\
+Hold z constant:
+$d\vec{r_2} =z^\frac{1}{2}d\phi\hat{\phi}$
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = \hat{r}(0-z^\frac{1}{2}d\phi dz) - \hat{\phi}(0-0)+\hat{k}(\frac{1}{2}d\phi dz-0)$$
+$$d\vec{A} = (-z^\frac{1}{2}\hat{r}+\frac{1}{2}\hat{k})d\phi dz$$
+
+\section*{(b)}
+Plot of the surface $z=x^2+4y^2$ with $d\vec{A}$ at point $(-1,-1,5)$ scaled to a unit vector and sign adjusted to point away from the surface
+\begin{center}
+    \includegraphics[scale=.35]{surfaces_fig.png}
+\end{center}
+
+
+\section*{(c)}
+Find the surface area of the hyperbolic paraboloid $z=x^2-y^2$ on the domain $-1 \leq x \leq 1$ and $-1 \leq y \leq 1$ by setting up and evaluating the appropriate integral.
+\\
+In Part A it was found that the surface differential for a hyperbolic paraboloid and the magnitude of it is:
+$$d\vec{A} = (-2x\hat{i}+2y\hat{j}+\hat{k})dxdy \quad |d\vec{A}| =\sqrt{4x^2+4y^2+1}dxdy$$
+\\
+To find the surface area we can take the integral of the magnitude of the surface differential; $d\vec{A}$, and add it to the surface area of the base.
+\\
+The surface area of the hyperbolic paraboloid is:
+
+$$SA_{hp} = \int_S |d\vec{A}| \rightarrow \int_{-1}^1\int_{-1}^1 \sqrt{4x^2+4y^2+1}\; dxdy$$
+
+This integral will be evaluated using two different numerical methods.
+\\
+
+First is using this python code:
+\begin{center}
+    \includegraphics[scale=.6]{double_int_fig1.png}
+\end{center}
+\\
+
+Second using WolframAlpha:
+\begin{center}
+    \includegraphics[scale=.8]{double_int_fig2.png}
+\end{center}
+
+The approximate value of the integral is 7.4463
+\\
+
+The surface area of the base is:
+$$SA_{base} = (1 - -1)(1 - -1) = 4$$
+
+From these calculations, the total surface area of the hyperbolic paraboloid within the bounds described above is 11.4463.
+
+\end{document}

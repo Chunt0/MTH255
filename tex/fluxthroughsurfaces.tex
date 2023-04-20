@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{Flux Through Surfaces}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Flux Through Surfaces}
+\rhead{\thepage}
+\maketitle
+
+Let $\vec{G} = -2x\hat{i} -2y\hat{j} -2z \hat{k}$ and $Flux = \int_C \vec{G} \cdot d\vec{A}$. Compute the flux of the vector field through the following surfaces:
+
+\subsection*{(a)}
+\begin{center}
+    $z = 5-x^2$ where $-2 \leq x \leq 2$ and $-1 \leq y \leq 2$
+    \includegraphics[scale=.5]{surface1.png}
+\end{center}
+
+Begin by finding the surface differential:
+$$z = 5-x^2 \rightarrow dz = -2xdx$$
+$$d\vec{r} = dx\hat{i} + dy\hat{j} + (-2xdx)\hat{k}$$
+$$d\vec{r_1} = dx\hat{i} - 2xdx\hat{k} \qquad d\vec{r_2} = dy\hat{j} $$
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = 2xdxdy \hat{i} + dxdy\hat{k}$$
+
+Now find the Flux:
+$$Flux = \int_C \vec{G} \cdot d\vec{A} \rightarrow \int_{-1}^2\int_{-2}^2 (-2x^2-10)dxdy$$
+
+Computing this double integral gives us:
+$$Flux = -152$$
+
+\subsection*{(b)}
+\begin{center}
+    The upper hemisphere of radius 4 $\rightarrow r = 4 \quad 0 \leq \theta \leq \pi /2 \quad 0 \leq \phi \leq 2\pi$
+        \includegraphics[scale=.5]{surface2.png}
+\end{center}
+
+This will be solved using a spherical coordinate system.
+Recall these equality's between rectangular and spherical coordinate systems:
+$$x = r sin(\theta)cos(\phi) \qquad y = rsin(\theta)sin(\phi) \qquad z = r cos(\theta)$$
+$$\hat{i} = sin(\theta)cos(\phi)\hat{r}+cos(\theta)cos(\phi)\hat{\theta}-sin(\phi)\hat{\phi}$$
+$$\hat{j} = sin(\theta)sin(\phi)\hat{r}+cos(\theta)sin(\phi)\hat{\theta}+cos(\phi)\hat{\phi}$$
+$$\hat{k} = cos(\theta)\hat{r}-sin(\theta)\hat{\theta}+0\hat{\phi}$$
+
+For a sphere the surface differential, $d\vec{A}$, is as follows:
+$$d\vec{A} = r^2sin(\theta)d\theta d\phi \hat{r}$$
+
+Next we must convert $\vec{G}$ into spherical. Since the surface differential has only one vector component, $\hat{r}$, we can simplify our work and only consider the $\hat{r}$ component of the vector field.
+\\
+
+After applying the conversions stated above the vector field in the $\hat{r}$ direction becomes:
+$$\vec{G_{\hat{r}}} = -2r\hat{r}$$
+
+Now find the Flux:
+$$Flux = \int_C \vec{G_{\hat{r}}} \cdot d\vec{A} \rightarrow \int_{0}^{2\pi} \int_{0}^{\pi/2} -128sin(\theta)d\theta d\phi$$
+
+Computing this double integral gives us:
+$$Flux = -256 \pi$$
+
+\subsection*{(c)}
+\begin{center}
+    $z = 5 - x^2 -y^2$ above the xy-plane where in quadrant 1 the bounds are: $0 \leq y \leq \sqrt{5-x^2} \qquad 0 \leq x \leq \sqrt{5} $
+        \includegraphics[scale=.5]{surface3.png}
+\end{center}
+
+In order to find the flux through this surface we will be using rectangular coordinates. Since the surface and the vector field are symmetric over each quadrant we can compute the flux through the surface in one quadrant and multiply that value by 4 to get the total flux through the surface.
+\\
+
+Begin by finding the surface differential:
+$$z = 5-x^2-y^2 \rightarrow dz = -2xdx - 2ydy$$
+$$d\vec{r} = dx\hat{i} + dy\hat{j} + (-2xdx-2ydy)\hat{k}$$
+$$d\vec{r_1} = dx\hat{i} - 2xdx\hat{k} \qquad d\vec{r_2} = dy\hat{j} - 2ydy\hat{k} $$
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = 2xdydx \hat{i} + 2ydydx\hat{j}+dydx\hat{k}$$
+
+Now find the Flux:
+$$Flux = 4\int_C \vec{G} \cdot d\vec{A} \rightarrow 4\int_{0}^{\sqrt{5}}\int_{0}^{\sqrt{5-x^2}} (-2x^2-2y^2-10)dydx$$
+
+Computing this double integral gives us:
+$$Flux = -75\pi$$
+
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{Center of Cake}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Center of Cake}
+\rhead{\thepage}
+\maketitle
+
+Find the volume of a slice of cylindrical cake of height 2" and radius 5" between the planes $\phi = \frac{\pi}{6}$ and $\phi = \frac{\pi}{3}$:
+\\
+
+Recall that the volume of some surface can be found with this integral $V = \int_SdV$ and $dV = rdrdzd\phi$ in cylindrical.
+
+$$0 \leq r \leq 5 \qquad 0 \leq z \leq 2 \qquad \pi/6 \leq \phi \leq \pi/3$$
+$$V = \int_{\pi/6}^{\pi/3} \int_0^2\int_0^5 rdrdzd\phi$$
+
+When evaluated we get the volume:
+
+$$V = \frac{25\pi}{6} \; in^3$$
+
+Assuming constant density, $\rho$, the mass of this slice is:
+
+$$m = \frac{25\rho\pi}{6}\; g$$
+
+To find the center of mass of a cylindrical wedge you must take into consideration that the value of r will approach zero as the angle phi approaches $2\pi$. To solve this problem we use rectangular coordinates.
+
+First, reorient the wedge angles $\phi$ by $-\frac{\pi}{6}$ and divide the wedge into two parts to be integrated. The projection on the xy-plane will look like this:
+
+\begin{center}
+    \includegraphics[scale=.51]{fig1.png}
+\end{center}
+
+Now set up each integral to solve for $\bar{x}$, $\bar{y}$, $\bar{z}$:
+
+
+
+$$\bar{x} = \frac{1}{m} \int_S x\rho dydxdz \rightarrow \frac{\rho}{m} \left( \int_0^2\int_0^{rcos(\frac{\pi}{6})}\int_0^{tan(\frac{\pi}{6})x}xdydxdz + \int_0^2\int_{rcos(\frac{\pi}{6})}^r\int_0^{\sqrt{25-x^2}}xdydxdz\right)$$
+$$\bar{y} = \frac{1}{m} \int_S y\rho dydxdz \rightarrow \frac{\rho}{m} \left( \int_0^2\int_0^{rcos(\frac{\pi}{6})}\int_0^{tan(\frac{\pi}{6})x}ydydxdz + \int_0^2\int_{rcos(\frac{\pi}{6})}^r\int_0^{\sqrt{25-x^2}}ydydxdz\right)$$
+$$\bar{z} = \frac{1}{m} \int_S z\rho dydxdz \rightarrow \frac{\rho}{m} \left( \int_0^2\int_0^{rcos(\frac{\pi}{6})}\int_0^{tan(\frac{\pi}{6})x}zdydxdz + \int_0^2\int_{rcos(\frac{\pi}{6})}^r\int_0^{\sqrt{25-x^2}}zdydxdz\right)$$
+
+When evaluated we get:
+
+$$\bar{x} = 3.1831 \;in$$
+$$\bar{y} = 0.8526 \;in$$
+$$\bar{z} = 1 \;in$$
+
+Converted to cylindrical and adjusted back to the original position:
+
+$$\bar{r} = 3.2954 \;in$$
+$$\bar{\phi} = \frac{\pi}{4} \;rad$$
+$$\bar{z} = 1 \;in$$
+\end{document}

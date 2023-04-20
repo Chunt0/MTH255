@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{Problem 2}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Problem 2}
+\rhead{\thepage}
+\maketitle
+
+\section*{Problem 2}
+\subsection*{(a)}
+Newton's Law of Gravitation States that the gravitational field exerted by an object at the origin on another object is given by:
+\begin{equation}
+    \vec{F} = -G \frac{m_1m_2}{r^2}\hat{r}\;N
+\end{equation}
+where r is the distance between the two masses.
+\\
+\\
+Find the work done by the gravitational field when the earth moves from aphelion (at a maximum distance of $1.52*10^{11}$ m from the sun) to perihelion (at a minimum distance of $1.47*10^{11}$ m).
+$$G = 6.67 * 10^{−11} \; \frac{Nm^2}{kg^2}\qquad m_{Earth} = 5.97 * 10^{24} \;kg \qquad m_{Sun} = 1.99 * 10^{30}\;kg$$
+$$a = 1.52*10^{11}\;m \qquad b = 1.47*10^{11}\;m$$
+
+Since these values are all constant we will equate them to a constant k:
+
+$$k = G*m_{Earth}*m_{Sun}$$
+
+Now the function $\vec{F}$ can be written as:
+
+$$\vec{F} = -k*\frac{1}{r^2}\hat{r}\;N$$
+
+So attempting a line integral between the dot product of this vector field and the elliptical path, $1 = \frac{x^2}{a^2}+\frac{y^2}{b^2}$, might be very time consuming, so let's try to find a potential function.
+\\
+\\
+The full form of $\vec{F}$ is:
+$$\vec{F} = -k*\frac{1}{r^2}\hat{r} + 0\hat{\phi}+0\hat{\theta}$$
+
+$$f(r,\phi,\theta) = -k \int \frac{1}{r^2} \; dr \rightarrow f(r,\phi,\theta) = -k \left( -\frac{1}{r}+c \right) \rightarrow f(r,\phi,\theta) = \frac{k}{r}-kc$$
+
+Since we found a potential function and it does not depend on $\phi$ or $\theta$ we can run with it! This vector field is conservative, so it is path independent.
+\\
+\\
+To find the work done all that we need to do is find the difference when we plug in a and b to this potential function.
+
+$$W= f(b,0,0) - f(a,0,0) = 1.77 * 10^{32} J$$
+
+Earth experiences $1.77*10^{32}\;J$ of work from the gravitational field of the sun.
+
+
+\subsection*{(b)}
+According to Coulomb’s law the electric force exerted by a charge $q_1$ located at the origin on a charge $q_2$ located at $P_1 = (x_1, y_1, z_1)$ is given by:
+\begin{equation}
+    \vec{F} = \frac{\epsilon q_1 q_2}{r^2}\hat{r}
+\end{equation}
+Show that if $q_1$ is a unit charge (equals 1), the work done by $\vec{F}$ to move the charge $q_2$ from $P_1$ to $P_2 = (x_2, y_2, z_2)$ is equal to:
+$$\frac{\epsilon q_2}{r_1} - \frac{\epsilon q_2}{r_2}$$
+where $r_1 = \sqrt{x_1^2+y_1^2+z_1^2}$ and $r_2= \sqrt{x_2^2+y_2^2+z_2^2}$
+\\
+
+This Vector Field is nearly identical to problem 2a. We will take the same approach as above. Since $q_1=1$ we can rewrite the vector field as:
+$$\vec{F} = \frac{\epsilon q_1 q_2}{r^2}\hat{r} \rightarrow \vec{F} = k*\frac{1}{r^2} \hat{r} \quad where\;\; k = \epsilon*1*q_2$$
+The full form of $\vec{F}$ is:
+$$\vec{F} = k*\frac{1}{r^2}\hat{r} + 0\hat{\phi}+0\hat{\theta}$$
+
+$$f(r,\phi,\theta) = k \int \frac{1}{r^2} \; dr \rightarrow f(r,\phi,\theta) = k \left( -\frac{1}{r}+c \right) \rightarrow f(r,\phi,\theta) = -\frac{k}{r}+kc$$
+
+To find the work done all that we need to do is find the difference when we plug in a and b to this potential function.
+
+$$W= f(r_2,0,0) - f(r_1,0,0) = \frac{-k}{r_2} - \frac{-k}{r_1} = \frac{k}{r_1}-\frac{k}{r_2} $$
+
+By using what we know about conservative vector fields and their corresponding potential functions we are able to show that $\frac{\epsilon q_2}{r_1} - \frac{\epsilon q_2}{r_2}$ is true for this scenario.
+
+\end{document}

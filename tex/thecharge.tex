@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\title{The Charge}
+\author{Christopher Hunt, Luiz Medina, Hannah Dempsey}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt, Luiz Medina, Hannah Dempsey}
+\lhead{The Charge}
+\rhead{\thepage}
+\maketitle
+According to Coloumb's Law, the electrostatic field $\vec{E}$ due to a charge $q$ at the origin is given by:
+$$\vec{E} = \frac{q}{4\pi\epsilon_0}\frac{\vec{r}}{|\vec{r}|^3}$$
+\subsubsection*{Get ready:}
+First we verify that $\frac{\vec{r}}{|\vec{r}|^3} = \frac{1}{r^2}\hat{r}$, where $r$ is the radius in spherical coordinates. The general vector equation for a sphere in spherical coordinates is:
+$$\vec{r} = r \dot \hat{r}$$
+Substituting that in to the equation $\frac{\vec{r}}{|\vec{r}|^3}$ we get:
+$$\frac{r}{r^3}\hat{r} \rightarrow \frac{1}{r^2}\hat{r}$$
+\subsubsection*{Set:}
+
+Next we find the flux of the vector field $\vec{E}$ through the surface $S$, where $S$ is the outward oriented sphere of radius $a > 0$ centered at the origin, including units. The flux of a vector field through some surface can be expressed as $\int_S \vec{E}\cdot d\vec{A}$. The electrostatic field $\vec{E}$ has units $\frac{N}{C}$ and the surface differential of the sphere has units $m^2$, taking the integral of the dot product of these two values will then give us units of:
+$$\frac{N m^2}{C}$$
+Now we find the flux through the surface. Begin by finding the surface differential of the sphere:
+$$r = a \rightarrow dr = 0\qquad \vec{r} = a\hat{r} \rightarrow d\vec{r} = ad\theta \hat{\theta} + asin(\theta)d\phi\hat{\phi}$$
+Hold $d\phi$ constant:
+$$d\vec{r_1} = ad\theta\hat{\theta}$$
+Hold $d\theta$ constant:
+$$d\vec{r_2} = asin(\theta)d\phi\hat{\phi}$$
+Take the cross product of these two vectors to find $d\vec{A}$:
+$$d\vec{A} = d\vec{r_1}\times d\vec{r_2} = a^2sin(\theta)d\theta d\phi \hat{r}$$
+Now use $\int_S \vec{E}\cdot d\vec{A}$ to find the flux:
+$$\int_S \vec{E}\cdot d\vec{A} \rightarrow \int_0^{2\pi}\int_0^{\pi} \left(\frac{q}{4\pi\epsilon_0}\cdot \frac{1}{a^2}\hat{r} \right)\bullet \left(a^2sin(\theta)d\theta d\phi \hat{r} \right)$$
+$$\frac{q}{4\pi\epsilon_0}\int_0^{2\pi}\int_0^{\pi}sin(\theta)d\theta d\phi = \frac{q}{4\pi\epsilon_0}\int_0^{2\pi}( -cos(\theta)|_0^{\pi}) = \frac{q}{4\pi\epsilon_0}\int_0^{2\pi}2 d\phi = \frac{q}{2\pi\epsilon_0}(\phi |_0^{2\pi})= \frac{q}{\epsilon_0}$$
+The flux through a sphere of radius $a > 0$ is:
+$$\frac{q}{\epsilon_0}\frac{N m^2}{C}$$
+\subsubsection*{Go:}
+This flux integral shows that for any constant point charge, the flux through a sphere of any radius, $r > 0$, with the charge at the center will be the value of the charge inversely proportional to the absolute dielectric permittivity of classical vacuum.
+$$\Phi = \oint_S \vec{E} \cdot d\vec{A} = \frac{q}{\epsilon_0}\frac{N m^2}{C}$$
+\end{document}
+

@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{Flux}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{Flux}
+\rhead{\thepage}
+\maketitle
+
+\section*{(a)}
+Find the flux of $\vec{F} = x\hat{i} + y\hat{j}+ z\hat{k}$ out of a closed circular cylinder of radius 2 centered on the the y-axis with base in the xy-plane and height 3. Set up and evaluate the appropriate surface integral(s) directly. Since the cylinder is closed, there will be three integrals to calculate then add to find the flux $\vec{F}$ through the surfaces of the cylinder.
+\\
+
+First, find the flux through the cylinder surface. Begin by finding the equation of the cylinder in polar, it's derivative, and then it's surface derivative:
+
+$$x^2+y^2=4 \rightarrow r^2=4 \rightarrow r = 2$$
+$$d\vec{r}=2d\phi \hat{\phi}+dz\hat{k}$$
+
+Hold $\phi$ constant:
+$$d\vec{r_1}=dz\hat{k}$$
+
+Hold $z$ constant:
+$$d\vec{r_2}=2d\phi \hat{\phi}$$
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = 2d\phi dz \hat{r}$$
+
+Next, convert the vector field into polar:
+
+$$\vec{F} = x\hat{i} + y\hat{j}+ z\hat{k} \rightarrow \vec{F} = rcos(\phi){i} + rsin(\phi)\hat{j}+ z\hat{k} \rightarrow \vec{F} = 2\hat{r}+ z\hat{k}$$
+
+To find the flux of this vector field through the surface, we will take the integral of the dot product of $\vec{F}$ and $d\vec{A}$. The bounds of this cylinder can be defined as: $r=2\quad 0 \leq \phi \leq 2\pi \quad 0 \leq z \leq 3$
+$$\int\int\vec{F} \cdot d\vec{A} \rightarrow \int_0^{2\pi}\int_0^34 dz d\phi = 24\pi$$
+
+Next find the flux through the top and the bottom of the cylinder. The surface equation for the bottom will be $z=0$ and for the top $z=3$.
+
+Start with the bottom:
+
+$$\vec{r} = r\vec{r} \rightarrow d\vec{r} = dr\hat{r} + rd\phi \hat{\phi}$$
+
+Hold r constant:
+$$d\vec{r_1} = rd\phi\hat{\phi}$$
+
+Hold $\phi$ constant:
+$$d\vec{r_2} = dr\hat{r}$$
+
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = -rdrd\phi\hat{k}$$
+
+To find the flux of this vector field through the surface, we will take the integral of the dot product of $\vec{F}$ and $d\vec{A}$. The bounds of this cylinder can be defined as: $0 \leq r \leq 2 \quad 0 \leq \phi \leq 2\pi \quad z = 0$
+$$\int\int\vec{F} \cdot d\vec{A} \rightarrow \int_0^{2\pi}\int_0^2 0*r dr d\phi = 0$$
+
+Then the top:
+
+$$\vec{r} = r\vec{r} \rightarrow d\vec{r} = dr\hat{r} + rd\phi \hat{\phi}$$
+
+Hold r constant:
+$$d\vec{r_1} = rd\phi\hat{\phi}$$
+
+Hold $\phi$ constant:
+$$d\vec{r_2} = dr\hat{r}$$
+
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = rdrd\phi\hat{k}$$
+
+To find the flux of this vector field through the surface, we will take the integral of the dot product of $\vec{F}$ and $d\vec{A}$. The bounds of this cylinder can be defined as: $0 \leq r \leq 2 \quad 0 \leq \phi \leq 2\pi \quad z = 3$
+$$\int\int\vec{F} \cdot d\vec{A} \rightarrow \int_0^{2\pi}\int_0^2 3*r dr d\phi = 12\pi$$
+
+Finally, to find the total flux, add each evaluated integral.
+
+$$Fluxi g_{tot} = 24\pi + 0 + 12\pi = 36\pi$$
+
+
+\section*{(b)}
+Consider the flux of a constant vector field through the cylindrical surfaces pictured below.
+\begin{center}
+    \includegraphics[scale=.5]{flux_fig.png}
+\end{center}
+In the first case the cylinder surface differential vector $d\vec{A}$ would be perpendicular to the vector field. Since the dot product of perpendicular vectors equal zero, the flux through the surface would also equal zero.
+
+In the second case the surface's differential vector $d\vec{A}$ will not be perpendicular in every case but since the cylinder is symmetric and the vector field is constant over the region, the amount of the vector field entering the surface will equal the amount of the vector field exiting the surface. The flux through this surface would then cancel itself out when summed, therefore the net flux would equal zero.
+
+\end{document}
+

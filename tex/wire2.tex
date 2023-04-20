@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\title{The Wire 2}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{The Wire 2}
+\rhead{\thepage}
+\maketitle
+
+Consider an infinitely long straight wire lying along the z-axis that carries
+an electric current I flowing in the $\hat{k}$ direction. Ampere’s Law says that the current gives rise to a magnetic field $\vec{B}$ given by:
+$$\vec{B}(x,y,z)=\frac{I}{2\pi}\frac{-y\hat{i}+x\hat{j}}{x^2+y^2}$$
+
+This can be written in polar as:
+$$\vec{B}(r,\phi,z)=\frac{I}{2\pi}\frac{\hat{\phi}}{r}$$
+
+\section*{(a)}
+The vector field can be illustrated as follows:
+\begin{center}
+    \includegraphics[scale=.5]{b_field_fig1.png}
+    \includegraphics[scale=.5]{b_field_fig2.png}
+\end{center}
+The vector field points counterclockwise around the wire, with vector magnitudes that are inversely proportional to the distance, r, from the wire along the z-axis.
+
+\section*{(b)}
+Suppose $S_1$ is the disk parallel to the xy-plane with a radius $a$ at a height $h$ above the xy-plane. What is the flux through this surface?
+$$r = a \quad z = h \quad \vec{r} = a\hat{r} + h\hat{k}$$
+$$d\vec{r} = da\hat{r}+ad\phi\hat{\phi}$$
+
+Find the surface differential, $d\vec{A}$:
+$$\vec{r} = r\vec{r} \rightarrow d\vec{r} = dr\hat{r} + rd\phi \hat{\phi}$$
+
+Hold r constant:
+$$d\vec{r_1} = ad\phi\hat{\phi}$$
+
+Hold $\phi$ constant:
+$$d\vec{r_2} = dr\hat{r}$$
+
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = adrd\phi\hat{k}$$
+
+To find the flux through a surface we will take the integral of the dot product between the vector field and the surface differential.
+\\
+
+From inspection of the vector field and the surface differential we can see that they are perpendicular to each other. The dot product of two perpendicular vectors is zero. Therefore the flux through this surface will equal zero.
+\section*{(c)}
+Suppose $S_2$ is a rectangle at x = 0 with height $h$ and width $l$ centered at the z-axis. What is the flux of $\vec{B}$ through $S_2$ toward the negative x-axis?
+\\
+
+This surface can be  described as:
+$$x = 0 \qquad -\frac{l}{2} \leq y \leq \frac{l}{2} \qquad 0 \leq z \leq h$$
+$$\vec{r} = y\hat{j} + z\hat{k} \rightarrow d\vec{r} = dy\hat{j}+dz\hat{k}$$
+
+Find $d\vec{A}$:
+
+Hold y constant:
+$d\vec{r_1} = dz\hat{k}$
+
+Hold z constant:
+$d\vec{r_2} = dy\hat{j}$
+
+$$d\vec{A} = d\vec{r_1} \times d\vec{r_2} = -dzdy \hat{i}$$
+
+Now evaluate the integral $\int_S \vec{B} \cdot d\vec{A}$
+
+$$\int_S \vec{B} \cdot d\vec{A} \rightarrow \frac{I}{2\pi}\int_{\frac{-l}{2}}^{\frac{l}{2}}\int_0^hy dzdy = 0$$
+
+The flux through the surface will equal zero. This is reasonable due to the symmetry of our surface about the z-axis. The flux that enters the surface equals the flux that leaves the surface.
+
+\section*{(d)}
+Find an interesting surface of your choice and compute the flux of the magnetic field through that surface.
+
+
+For this we will use the paraboloid found in cylindrical coordinates.
+$$d\vec{A} = (-z^\frac{1}{2}\hat{r}+\frac{1}{2}\hat{k})d\phi dz$$
+
+The dot product of this surface and the vector field $\vec{B}$ will be zero because they don't share any vector components, therefore the integral will equal zero as well.
+
+\end{document}

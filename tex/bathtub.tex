@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\title{The Bathtub}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 255}
+\lfoot{Christopher Hunt}
+\lhead{The Bathtub}
+\rhead{\thepage}
+\maketitle
+\section*{Fluid in a bathtub flows according to the field given by:}
+$$\vec{F}=-\frac{y+xz}{(z^2+1)^2}\hat{i}-\frac{yz-x}{(z^2+1)^2}\hat{j}-\frac{1}{z^2+1}\hat{k}$$
+with $x$, $y$, and $z$ in $cm$ and $\vec{F}$ in $cm/sec$.
+\subsection*{(a) Verbally describe how the fluid is moving:}
+
+Rewriting the vector field in cylindrical coordinates allows for better visualization:
+$$\vec{F}=-\frac{y+xz}{(z^2+1)^2}\hat{i}-\frac{yz-x}{(z^2+1)^2}\hat{j}-\frac{1}{z^2+1}\hat{k} \rightarrow \frac{-y\hat{i}+x\hat{j}}{(z^2+1)^2}+\frac{-z(x\hat{i}+y\hat{j})}{(z^2+1)^2}\hat{j}-\frac{1}{z^2+1}\hat{k}$$
+$$\hat{r} = x\hat{i}+y\hat{j} \qquad \hat{\phi}=-y\hat{i}+x\hat{j}$$
+$$\vec{F}=\frac{-z}{(z^2+1)^2}\hat{r}+\frac{1}{(z^2+1)^2}\hat{\phi}-\frac{1}{z^2+1}\hat{k}$$
+This vector field describes a counterclockwise whirlpool pointing in a $-\hat{k}$ direction which increases in magnitude as z decreases.
+
+\subsection*{(b) There is a small hole in the bathtub which can be modeled as a disk, S, in the xy-plane with center
+at the origin and radius 1 cm. Find the rate at which the fluid leaves the bathtub, by setting up and evaluating an integral.}
+\begin{center}
+    \includegraphics[scale=0.3]{fig1.png}
+\end{center}
+To solve this problem we will use a surface flux integral, $\Phi_S = \int_S \hat{F} \cdot d\vec{A}$. We already have $\vec{F}$, so now let's find $d\vec{A}$.
+Assume that S is oriented in the positive $\hat{k}$ direction:
+$$\vec{F}=\frac{-z}{(z^2+1)^2}\hat{r}+\frac{1}{(z^2+1)^2}\hat{\phi}-\frac{1}{z^2+1}\hat{k} \qquad d\vec{A} = -rdrd\phi \;\hat{k} $$
+$$ 0 \leq r \leq 1 \;cm \qquad 0 \leq \phi \leq 2\pi \;radians \qquad z = 0$$
+$$\Phi_S = \int_S \hat{F} \cdot d\vec{A} \rightarrow \int_S \frac{rdrd\phi}{z^2+1} \rightarrow \int_0^{2\pi}\int_0^1 rdrd\phi \rightarrow \Phi_S=\pi\;\frac{cm^3}{sec}$$
+
+\subsection*{(c) Find $\vec{\nabla}\cdot\vec{F}$}
+$\vec{\nabla}\cdot\vec{F}$ in rectangular:
+$$\vec{\nabla}\cdot\vec{F} = \frac{\delta Fx}{\delta x} + \frac{\delta F_y}{\delta y} + \frac{\delta F_z}{\delta z} \rightarrow \vec{\nabla}\cdot\vec{F} = \frac{-z}{(z^2+1)^2} - \frac{z}{(z^2+1)^2} + \frac{2z}{(z^2+1)^2}$$
+$$\vec{\nabla}\cdot\vec{F} = 0$$
+
+\subsection*{(d) Find the flux of the fluid through the hemisphere of radius 1 cm, centered at the origin, lying below the xy-plane and oriented downward.}
+\begin{center}
+    \includegraphics[scale=0.3]{fig2.png}
+\end{center}
+To solve this we will use what we calculated for the flux through the disk and the Divergence Theorem to find the flux through the lower half of a sphere, Sb, of radius 1 cm centered at the origin.
+$$\Phi_{Sb} = \int_{inside}\vec{\nabla}\cdot\vec{F}dV - \Phi_S$$
+The volume integral can be described in cylindrical by these equality's:
+$$0 \leq r \leq 1 \;cm \qquad 0 \leq \phi \leq 2\pi \; rad \qquad -\sqrt{1-r^2} \leq z \leq 0 \; cm\qquad dV = r\;dzd\phi dr$$
+Find the Divergence through the hemisphere below the xy-plane:
+$$\int_{inside}\vec{\nabla}\cdot\vec{F}dV = \int_0^1\int_0^{2\pi}\int_{-\sqrt{1-r^2}}^0  0*dzd\phi dr = 0$$
+First, invert the sign on $\Phi_S$ so that it is pointing outward, then solve for $\Phi_{Sb}$:
+$$\Phi_{Sb} =0- (-\pi) \rightarrow \Phi_{Sb} = \pi \;\frac{cm^3}{sec}$$
+
+\subsection*{(e) Find $\oint_C \vec{G} \cdot d\vec{r}$, where $C$ is the edge of the drain, oriented clockwise when viewed from above and where:}
+$$\vec{G} = \frac{1}{2}\left( \frac{y\hat{i}-x\hat{j}}{z^2+1}-\frac{x^2+y^2}{(z^2+1)^2}\hat{k}\right) \rightarrow \vec{G} = \frac{y}{2(z^2+1)}\hat{i} - \frac{x}{2(z^2+1)}\hat{j} - \frac{x^2+y^2}{(z^2+1)^2}\hat{k}$$ 
+$$x = r cos(\phi) \quad y = r sin(\phi) \quad z = 0\; cm\quad r = 1 \;cm$$
+$$\vec{G} = \frac{sin(\phi)}{2}\hat{i}-\frac{cos(\phi)}{2}\hat{j}-\frac{1}{2}\hat{k} \rightarrow \vec{G} = -\frac{1}{2}\hat{\phi} -\frac{1}{2}\hat{k}$$
+Let $d\vec{r}$ be: 
+$$ d\vec{r} = -rd\phi \hat{\phi} + 0 \hat{k}\; \qquad -2\pi \leq \phi \leq 0$$
+Find  $\oint_C \vec{G} \cdot d\vec{r}$:
+ $$\oint_C \vec{G} \cdot d\vec{r} = \int_{-2\pi}^0\frac{1}{2}d\phi = \pi$$
+
+\subsection*{(f) Calculate $\vec{\nabla} \times \vec{G}$}
+Find the curl of $\vec{G}$ in rectangular: 
+$$\vec{\nabla} \times \vec{G} = \left(\frac{\delta G_z}{\delta y} - \frac{\delta G_y}{\delta z}\right)\hat{i} + \left(\frac{\delta G_x}{\delta z} - \frac{\delta G_z}{\delta x}\right)\hat{j} + \left(\frac{\delta G_y}{\delta x} - \frac{\delta G_x}{\delta y}\right)\hat{k}$$
+$$\vec{G} = \frac{y}{2(z^2+1)}\hat{i} - \frac{x}{2(z^2+1)}\hat{j} - \frac{x^2+y^2}{(z^2+1)^2}\hat{k}$$
+$$\vec{\nabla} \times \vec{G} = \left(\frac{-y}{(z^2+1)^2} - \frac{xz}{(z^2+1)^2}\right) \hat{i} + \left(\frac{x}{(z^2+1)^2} - \frac{yz}{(z^2+1)^2}\right) \hat{j} + \left(\frac{1}{2(z^2+1)} - \frac{-1}{2(z^2+1)}\right) \hat{k}$$
+$$\vec{\nabla} \times \vec{G} = -\frac{y+xz}{(z^2+1)^2}\hat{i}-\frac{yz-x}{(z^2+1)^2}\hat{j}-\frac{1}{z^2+1}\hat{k}$$
+The curl of the vector field $\vec{G}$ just so happens to be the same as $\vec{F}$!
+$$\vec{\nabla} \times \vec{G} = \vec{F}$$
+
+\subsection*{(g) Explain why the answers to parts \#d and \#e are equal.}
+If F is the curl of some function G then the flux of that field F through a surface, S, will equal the circulation around the boundary of that surface through that function G.
+$$If\;\vec{\nabla} \times \vec{G} = \vec{F} \;and\; \vec{\nabla}\cdot \vec{F} = 0 \;then\; \oint_C \vec{G}\cdot d\vec{r} = \int_S \vec{F} \cdot d\vec{A}$$
+\subsection*{(h) Explain why the answers to parts \#b and \#d are equal.}
+The fluid flowing out of the bathtub through the drain was $\pi\;\frac{cm^3}{sec}$ and the fluid flowing out of the hemisphere is also $\pi\;\frac{cm^3}{sec}$. Since we are describing fluid flow, we know that water is incompressible, therefore the divergence is zero. Since the flux per volume is zero, the flux through the lower hemisphere should be equal and opposite the flux through the circular disk on the top, which, when you invert the surface differential for the drain would give us $\pi\;\frac{cm^3}{sec}$ leaving the lower hemisphere. 
+
+\end{document}
+
